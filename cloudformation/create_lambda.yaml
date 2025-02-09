@@ -12,3 +12,17 @@ Resources:
         S3Key: lambda_code/hello_world.zip
       Timeout: 15
       MemorySize: 128
+ MyGlueJob:
+    Type: AWS::Glue::Job
+    Properties:
+      Name: DAC_GlueJob
+      Role: arn:aws:iam::891376961526:role/LabRole
+      Command:
+        Name: glueetl
+        ScriptLocation: !Sub "s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py"
+        PythonVersion: "3"
+      GlueVersion: "3.0"
+      DefaultArguments:
+        "--job-language": "python"
+      WorkerType: "Standard"
+      NumberOfWorkers: 2
