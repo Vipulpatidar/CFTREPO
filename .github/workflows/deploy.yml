@@ -1,0 +1,35 @@
+name: Deploy Lambda Function
+
+on:
+  push:
+    paths:
+      - CSV_dir/**        # Trigger when files are added/changed in the CSV_dir
+      - lambda_code/**    # Trigger when the Lambda code is updated
+      - cloudformation/** # Trigger when the CFT is updated
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Upload Lambda Code to S3
+      run: |
+        aws s3 cp lambda_code/hello_world.py s3://scriptsforcft/lambda_code/hello_world.py
+
+    - name: Deploy CloudFormation Template
+      run: |
+        aws cloudformation deploy \
+          --template-file cloudformation/create_lambda.yaml \
+          --stack-name LambdaStack \
+          --capabilities CAPABILITY_NAMED_IAM
