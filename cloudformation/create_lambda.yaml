@@ -6,7 +6,7 @@ Resources:
       FunctionName: HelloWorldLambda
       Runtime: python3.9
       Handler: hello_world.lambda_handler
-      Role: arn:aws:iam::975049960469:role/LabRole
+      Role: arn:aws:iam::891376961526:role/LabRole
       Code:
         S3Bucket: scriptsforcft
         S3Key: lambda_code/hello_world.zip
