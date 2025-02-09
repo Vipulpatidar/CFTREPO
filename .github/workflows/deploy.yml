@@ -23,9 +23,9 @@ jobs:
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Upload Lambda Code to S3
-      run: |
-        aws s3 cp lambda_code/hello_world.zip s3://scriptsforcft1/lambda_code/hello_world.zip
+    # - name: Upload Lambda Code to S3
+    #   run: |
+    #     aws s3 cp lambda_code/hello_world.zip s3://scriptsforcft1/lambda_code/hello_world.zip
 
     - name: Deploy CloudFormation Template
       run: |
