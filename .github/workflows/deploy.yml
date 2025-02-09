@@ -26,6 +26,9 @@ jobs:
     - name: Upload Lambda Code to S3
       run: |
         aws s3 cp lambda_code/hello_world.zip s3://scriptsforcft1/lambda_code/hello_world.zip
+    - name: Upload Glue Script to S3
+      run: |
+        aws s3 cp lambda_code/DAC_GlueJob_.py s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py
 
     - name: Deploy CloudFormation Template
       run: |
