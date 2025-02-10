@@ -22,17 +22,20 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: ${{ secrets.AWS_REGION }}
-
-    - name: Upload Lambda Code to S3
-      run: |
-        aws s3 cp lambda_code/LambdaScript.zip s3://scriptsforcft1/lambda_code/LambdaScript.zip
-    - name: Upload Glue Script to S3
-      run: |
-        aws s3 cp lambda_code/DAC_GlueJob_.py s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py
-
     - name: Deploy CloudFormation Template
       run: |
         aws cloudformation deploy \
           --template-file cloudformation/create_lambda.yaml \
           --stack-name LambdaStack \
           --capabilities CAPABILITY_NAMED_IAM
+    - name: Upload Lambda Code to S3
+      run: |
+        aws s3 cp lambda_code/LambdaScript.zip s3://scriptsforcft1/lambda_code/LambdaScript.zip
+    - name: Upload Glue Script to S3
+      run: |
+        aws s3 cp lambda_code/DAC_GlueJob_.py s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py
+    - name: Upload Files to Newly Created dataforglue S3 Bucket
+      run: |
+        aws s3 cp Dataforglue/ s3://data---for1-glue1/ --recursive
+
+    
