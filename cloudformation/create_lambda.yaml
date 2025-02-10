@@ -33,7 +33,7 @@ Resources:
   MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: data---for1-glue123
+      BucketName: data---for1-glue1234
       NotificationConfiguration:
         LambdaConfigurations:
           - Event: s3:ObjectCreated:*
@@ -50,7 +50,7 @@ Resources:
       Action: lambda:InvokeFunction
       FunctionName: !Ref MyLambdaFunction
       Principal: s3.amazonaws.com
-      SourceArn: !Sub arn:aws:s3:::data---for1-glue123
+      SourceArn: !Sub arn:aws:s3:::data---for1-glue1234
 
   MyLambdaFunction:
     Type: AWS::Lambda::Function
