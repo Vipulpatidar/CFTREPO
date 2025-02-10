@@ -33,8 +33,25 @@ Resources:
   MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: data---for1-glue12  # Ensure this is globally unique
- 
+      BucketName: data---for1-glue1
+      NotificationConfiguration:
+        LambdaConfigurations:
+          - Event: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: suffix
+                    Value: .csv  # Trigger only when CSV files are uploaded
+            Function: !GetAtt MyLambdaFunction.Arn
+
+  MyS3BucketLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref MyLambdaFunction
+      Principal: s3.amazonaws.com
+      SourceArn: !Sub arn:aws:s3:::data---for1-glue1
+
   MyLambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
