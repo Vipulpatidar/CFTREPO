@@ -6,3 +6,4 @@ scxSC
 sccxvdd
 csdf
 xxzsc
+sc
