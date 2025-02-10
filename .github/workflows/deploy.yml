@@ -40,7 +40,7 @@ jobs:
     
     - name: Upload Files to Newly Created dataforglue S3 Bucket
       run: |
-        aws s3 cp Dataforglue/ s3://data---for1-glue1012/ --recursive
+        aws s3 cp Dataforglue/ s3://data---for1-glue143/ --recursive
        
 
     
