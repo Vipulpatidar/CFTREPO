@@ -39,6 +39,6 @@ jobs:
         aws s3 cp Dataforglue/ s3://data---for1-glue1/ --recursive
     - name: Upload LambdaGlueTrigger Script to S3
       run: |
-        aws s3 cp lambda_code/LambdaGlueScript.zip s3://scriptsforcft1/lambda_code/.py    
+        aws s3 cp lambda_code/LambdaGlueScript.zip s3://scriptsforcft1/lambda_code/LambdaGlueScript.py    
 
     
