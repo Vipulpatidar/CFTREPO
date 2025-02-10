@@ -33,4 +33,4 @@ Resources:
   MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: dataforglue  # Ensure this is globally unique
+      BucketName: data---for1-glue1  # Ensure this is globally unique
