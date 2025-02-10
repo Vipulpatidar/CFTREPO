@@ -52,7 +52,7 @@ Resources:
       Principal: s3.amazonaws.com
       SourceArn: !Sub arn:aws:s3:::data---for1-glue1234
 
-  MyLambdaFunction:
+  GlueTriggerFunction:
     Type: AWS::Lambda::Function
     Properties:
       FunctionName: GlueTrigger
