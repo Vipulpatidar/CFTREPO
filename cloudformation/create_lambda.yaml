@@ -29,8 +29,8 @@ Resources:
         "--job-language": "python"
       WorkerType: "Standard"
       NumberOfWorkers: 2
-    Resources:
- MyS3Bucket:
+
+  MyS3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: dataforglue  
+      BucketName: dataforglue  # Ensure this is globally unique
