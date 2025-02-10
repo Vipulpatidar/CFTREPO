@@ -24,7 +24,7 @@ Resources:
         Name: Glue_dac
         ScriptLocation: !Sub "s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py"
         PythonVersion: "3"
-      GlueVersion: "2.0"
+      # GlueVersion: "2.0"
       DefaultArguments:
         "--job-language": "python"
       WorkerType: "Standard"
