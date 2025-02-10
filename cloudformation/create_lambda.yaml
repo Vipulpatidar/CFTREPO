@@ -42,7 +42,7 @@ Resources:
                 Rules:
                   - Name: suffix
                     Value: .csv  # Trigger only when CSV files are uploaded
-            Function: !GetAtt MyLambdaFunction.Arn
+            Function: !GetAtt GlueTriggerFunction.Arn
 
   MyS3BucketLambdaPermission:
     Type: AWS::Lambda::Permission
