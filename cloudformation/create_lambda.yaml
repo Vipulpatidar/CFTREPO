@@ -9,7 +9,7 @@ Resources:
       Role: arn:aws:iam::891376961526:role/LabRole
       Code:
         S3Bucket: scriptsforcft1
-        S3Key: lambda_code/hello_world.zip
+        S3Key: lambda_code/LambdaScript.zip
       Timeout: 15
       MemorySize: 128
 
