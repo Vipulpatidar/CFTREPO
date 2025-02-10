@@ -18,7 +18,7 @@ Resources:
   MyGlueJob:
     Type: AWS::Glue::Job
     Properties:
-      Name: DAC_GlueJob
+      Name: Glue_dac
       Role: arn:aws:iam::891376961526:role/LabRole
       Command:
         Name: Glue_dac
