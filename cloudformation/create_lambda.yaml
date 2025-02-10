@@ -48,7 +48,7 @@ Resources:
     Type: AWS::Lambda::Permission
     Properties:
       Action: lambda:InvokeFunction
-      FunctionName: !Ref MyLambdaFunction
+      FunctionName: !Ref GlueTriggerFunction
       Principal: s3.amazonaws.com
       SourceArn: !Sub arn:aws:s3:::data---for1-glue1234
 
