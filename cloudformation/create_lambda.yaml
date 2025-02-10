@@ -21,7 +21,7 @@ Resources:
       Name: DAC_GlueJob
       Role: arn:aws:iam::891376961526:role/LabRole
       Command:
-        Name: glueetl
+        Name: Glue_dac
         ScriptLocation: !Sub "s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py"
         PythonVersion: "3"
       GlueVersion: "3.0"
