@@ -20,7 +20,7 @@ Resources:
     Properties:
       BucketName: dataforsagemaker101
 
-  MyGlueJob:
+  MyGlueJobDBDA:
     Type: AWS::Glue::Job
     Properties:
       Name: Glue_dbda
