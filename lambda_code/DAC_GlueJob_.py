@@ -206,7 +206,7 @@ df = df.withColumn(
 # 🔹 Saving Cleaned Data to S3
 # ------------------------------------------------------
 
-output_path = "s3://outputdac/dac"
+output_path = "s3://dataforsagemaker01/dac"
 df.write.mode("overwrite").option("header", "true").csv(output_path)
 
 # Print Confirmation
