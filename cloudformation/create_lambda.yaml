@@ -1,9 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Resources:
-  Scripts:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: scriptsforcft1
+  # Scripts:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     BucketName: scriptsforcft1
   MyLambdaFunction:
     Type: AWS::Lambda::Function
     Properties:
