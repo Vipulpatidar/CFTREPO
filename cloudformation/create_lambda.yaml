@@ -56,10 +56,10 @@ Resources:
       FunctionName: !Ref GlueTriggerFunction
       Principal: s3.amazonaws.com
       SourceArn: !Sub arn:aws:s3:::data---for1-glue143
-  S3Bucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: sagemaker01
+  # S3Bucket:
+  #   Type: AWS::S3::Bucket
+  #   Properties:
+  #     BucketName: dataforsagemaker101
   GlueTriggerFunction:
     Type: AWS::Lambda::Function
     Properties:
