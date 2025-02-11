@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set variables
-BUCKET_NAME="t"
+BUCKET_NAME="scriptsforcft1"
 AWS_REGION=${AWS_REGION:-"us-east-1"}  # Default to us-east-1 if not set
 FILES_DIR="lambda_code"  # Directory containing the files to upload
 
