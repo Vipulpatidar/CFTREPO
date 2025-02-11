@@ -28,9 +28,7 @@ jobs:
           --template-file cloudformation/create_lambda.yaml \
           --stack-name LambdaStack \
           --capabilities CAPABILITY_NAMED_IAM    
-    - name: Upload LambdaGlueTrigger Script to S3
-      run: |
-        aws s3 cp lambda_code/LambdaGlueScript.zip s3://scriptsforcft1/lambda_code/LambdaGlueScript.zip
+    
     - name: Upload Lambda Code to S3
       run: |
         aws s3 cp lambda_code/LambdaScript.zip s3://scriptsforcft1/lambda_code/LambdaScript.zip
@@ -40,7 +38,9 @@ jobs:
     - name: Upload Glue Script to S3
       run: |
         aws s3 cp lambda_code/Glue_dbda.py s3://scriptsforcft1/lambda_code/Glue_dbda_.py    
-    
+    - name: Upload LambdaGlueTrigger Script to S3
+      run: |
+        aws s3 cp lambda_code/LambdaGlueScript.zip s3://scriptsforcft1/lambda_code/LambdaGlueScript.zip
     
     - name: Upload Files to Newly Created dataforglue S3 Bucket
       run: |
