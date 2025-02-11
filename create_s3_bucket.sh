@@ -17,7 +17,7 @@ fi
 
 # Upload files to S3
 echo "Uploading files from $FILES_DIR to S3 bucket..."
-aws s3 cp $FILES_DIR s3://$BUCKET_NAME/ --recursive
+aws s3 cp $FILES_DIR s3://$BUCKET_NAME/lambda_code/ --recursive
 
 # Verify file upload
 if [ $? -ne 0 ]; then
