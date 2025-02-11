@@ -30,7 +30,10 @@ jobs:
         aws s3 cp lambda_code/LambdaScript.zip s3://scriptsforcft1/lambda_code/LambdaScript.zip
     - name: Upload Glue Script to S3
       run: |
-        aws s3 cp lambda_code/DAC_GlueJob_.py s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py    
+        aws s3 cp lambda_code/DAC_GlueJob_.py s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py
+    - name: Upload Glue Script to S3
+      run: |
+        aws s3 cp lambda_code/glue_dbda.py s3://scriptsforcft1/lambda_code/glue_dbda.py    
     - name: Deploy CloudFormation Template
       run: |
         aws cloudformation deploy \
