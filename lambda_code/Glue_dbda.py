@@ -233,7 +233,7 @@ df = df.withColumn("Age", year(col("year")) - year(col("dob")))
 #############################
 
 # Saving Cleaned Data to S3
-output_path = "s3://outputdac/dbda"
+output_path = "s3://dataforsagemaker101/dbda"
 df.write.mode("overwrite").option("header", "true").csv(output_path)
 
 # Print Confirmation
