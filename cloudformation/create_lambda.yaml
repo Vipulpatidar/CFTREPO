@@ -53,7 +53,7 @@ Resources:
       WorkerType: "Standard"
       NumberOfWorkers: 2    
 
-  MyS3Bucket:
+  MyS3BucketforGluedata:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: data---for1-glue143
