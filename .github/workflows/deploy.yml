@@ -22,6 +22,11 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: ${{ secrets.AWS_REGION }}
+    - name: Make Bash script executable
+      run: chmod +x create_s3_bucket.sh
+
+    - name: Run Bash script to create S3 bucket and upload files
+      run: ./create_s3_bucket.sh    
     - name: Deploy CloudFormation Template
       run: |
         aws cloudformation deploy \
@@ -29,18 +34,18 @@ jobs:
           --stack-name LambdaStack \
           --capabilities CAPABILITY_NAMED_IAM    
     
-    - name: Upload Lambda Code to S3
-      run: |
-        aws s3 cp lambda_code/LambdaScript.zip s3://scriptsforcft1/lambda_code/LambdaScript.zip
-    - name: Upload Glue Script to S3
-      run: |
-        aws s3 cp lambda_code/DAC_GlueJob_.py s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py
-    - name: Upload Glue Script to S3
-      run: |
-        aws s3 cp lambda_code/Glue_dbda.py s3://scriptsforcft1/lambda_code/Glue_dbda_.py    
-    - name: Upload LambdaGlueTrigger Script to S3
-      run: |
-        aws s3 cp lambda_code/LambdaGlueScript.zip s3://scriptsforcft1/lambda_code/LambdaGlueScript.zip
+    # - name: Upload Lambda Code to S3
+    #   run: |
+    #     aws s3 cp lambda_code/LambdaScript.zip s3://scriptsforcft1/lambda_code/LambdaScript.zip
+    # - name: Upload Glue Script to S3
+    #   run: |
+    #     aws s3 cp lambda_code/DAC_GlueJob_.py s3://scriptsforcft1/lambda_code/DAC_GlueJob_.py
+    # - name: Upload Glue Script to S3
+    #   run: |
+    #     aws s3 cp lambda_code/Glue_dbda.py s3://scriptsforcft1/lambda_code/Glue_dbda_.py    
+    # - name: Upload LambdaGlueTrigger Script to S3
+    #   run: |
+    #     aws s3 cp lambda_code/LambdaGlueScript.zip s3://scriptsforcft1/lambda_code/LambdaGlueScript.zip
     
     - name: Upload Files to Newly Created dataforglue S3 Bucket
       run: |
