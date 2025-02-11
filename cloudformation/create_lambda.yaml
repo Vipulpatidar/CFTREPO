@@ -15,6 +15,11 @@ Resources:
       Layers:
         - arn:aws:lambda:us-east-1:336392948345:layer:AWSSDKPandas-Python313:1  # Replace with your region's ARN
 
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: sagemaker01
+
   MyGlueJob:
     Type: AWS::Glue::Job
     Properties:
@@ -51,7 +56,10 @@ Resources:
       FunctionName: !Ref GlueTriggerFunction
       Principal: s3.amazonaws.com
       SourceArn: !Sub arn:aws:s3:::data---for1-glue143
-
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: sagemaker01
   GlueTriggerFunction:
     Type: AWS::Lambda::Function
     Properties:
@@ -64,3 +72,8 @@ Resources:
         S3Key: lambda_code/LambdaGlueScript.zip
       Timeout: 15
       MemorySize: 128
+
+Outputs:
+  BucketName:
+    Description: "S3 bucket created"
+    Value: !Ref S3Bucket
